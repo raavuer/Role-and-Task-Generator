@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Role-n-Task-Gen</title>
+    <meta name="application-name" content="Role and Task Generator" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Micah Ronan" />
+    <meta
+      name="description"
+      content="A web app for streamlining the process of pulling names from a hat."
+    />
+    <meta name="keywords" content="role generator, task generator" />
+    <link type="image/jpg" rel="icon" href="favicon.ico" />
+    <link type="text/css" rel="stylesheet" href="w3.css" />
+    <script src="jquery-3.7.1.min.js"></script>
+    <style>
+      .w3-theme-l5 {
+        color: #000 !important;
+        background-color: #f2f9fe !important;
+      }
+      .w3-theme-l4 {
+        color: #000 !important;
+        background-color: #d2eafd !important;
+      }
+      .w3-theme-l3 {
+        color: #000 !important;
+        background-color: #a6d4fa !important;
+      }
+      .w3-theme-l2 {
+        color: #000 !important;
+        background-color: #79bff8 !important;
+      }
+      .w3-theme-l1 {
+        color: #fff !important;
+        background-color: #4daaf6 !important;
+      }
+      .w3-theme-d1 {
+        color: #fff !important;
+        background-color: #0c87eb !important;
+      }
+      .w3-theme-d2 {
+        color: #fff !important;
+        background-color: #0b78d1 !important;
+      }
+      .w3-theme-d3 {
+        color: #fff !important;
+        background-color: #0a69b7 !important;
+      }
+      .w3-theme-d4 {
+        color: #fff !important;
+        background-color: #085a9d !important;
+      }
+      .w3-theme-d5 {
+        color: #fff !important;
+        background-color: #074b83 !important;
+      }
+
+      .w3-theme-light {
+        color: #000 !important;
+        background-color: #f2f9fe !important;
+      }
+      .w3-theme-dark {
+        color: #fff !important;
+        background-color: #074b83 !important;
+      }
+      .w3-theme-action {
+        color: #fff !important;
+        background-color: #074b83 !important;
+      }
+      .w3-theme {
+        color: #fff !important;
+        background-color: #2196f3 !important;
+      }
+      .w3-text-theme {
+        color: #2196f3 !important;
+      }
+      .w3-border-theme {
+        border-color: #2196f3 !important;
+      }
+      .w3-hover-theme:hover {
+        color: #fff !important;
+        background-color: #2196f3 !important;
+      }
+      .w3-hover-text-theme:hover {
+        color: #2196f3 !important;
+      }
+      .w3-hover-border-theme:hover {
+        border-color: #2196f3 !important;
+      }
+      .w3-hover-theme-d4:hover {
+        color: #fff !important;
+        background-color: #085a9d !important;
+      }
+
+      header nav button {
+        margin: 0px 2px;
+      }
+      @media (min-width: 601px) {
+        header nav {
+          margin-top: 8px;
+        }
+        header nav button {
+          margin: 0px 6px;
+        }
+      }
+    </style>
+  </head>
+  <body class="w3-black">
+    <header class="w3-theme">
+      <div class="w3-container w3-center w3-text-black">
+        <h1 class="w3-hide-small">Role and Task Generator</h1>
+        <h1 class="w3-hide-medium w3-hide-large">Role and Task Gen</h1>
+      </div>
+    </header>
+
+    <main class="w3-panel w3-center">
+      <section class="w3-panel">
+        <h2 id="loading">
+          Connected. <br />
+          Please wait for host...
+        </h2>
+        <h2 id="disconnect" style="display: none">Your connection was lost.</h2>
+
+        <button
+          onclick="document.getElementById('modal').style.display='block'"
+          class="w3-button w3-theme-d3 w3-round-xlarge"
+          style="display: none"
+          id="modal-button"
+        >
+          Show Role and Tasks
+        </button>
+
+        <div id="modal" class="w3-modal">
+          <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-black">
+            <header class="w3-container w3-theme">
+              <span
+                onclick="document.getElementById('modal').style.display='none'"
+                class="w3-button w3-display-topright w3-hover-theme-d4 w3-xlarge"
+                >&times;</span
+              >
+              <h2 id="role">Role:</h2>
+            </header>
+
+            <div class="w3-container w3-theme-d3 w3-left-align">
+              <h4>Tasks:</h4>
+              <ul id="tasks"></ul>
+            </div>
+
+            <footer
+              class="w3-container w3-theme-d5"
+              style="border-bottom-right-radius: 16px"
+            >
+              <p>
+                Don't let anyone see your role. Close by clicking the x or
+                outside the box.
+              </p>
+            </footer>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section class="w3-container">
+        <h2 class="w3-hide-small">RTG</h2>
+        <h2 class="w3-hide-medium w3-hide-large">Role and Task Generator</h2>
+        <p>
+          Role and Task Generator (RTG) was made for the general purpose of
+          streamlining the process of pulling names from a hat.
+        </p>
+        <p>
+          In online games, computers can automate much of the work done, but
+          when playing games in real life, we have to do it ourselves, which can
+          be tedious.
+        </p>
+      </section>
+      <section class="w3-container">
+        <h3>In Game</h3>
+        <p>
+          Once the host has started, everyone will be given predefined roles and
+          tasks.
+        </p>
+        <p>
+          Because this is meant to be used for real life games, players will be
+          able to hide their role from others who might try peeking.
+        </p>
+      </section>
+    </main>
+
+    <footer class="w3-container w3-theme-d5">
+      <h6>
+        Brought to you by
+        <a href="mailto:mr.micahronan@gmail.com">Micah Ronan</a>.
+      </h6>
+    </footer>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(document).ready(() => {
+        const socket = io();
+
+        const $DOM = {
+          loading: $("#loading"),
+          disconnect: $("#disconnect"),
+          modal: $("#modal"),
+          modalBtn: $("#modal-button"),
+          role: $("#role"),
+          tasks: $("#tasks")
+        };
+
+        socket.on("connect", () => {
+          socket.on("disconnect", () => {
+            $DOM.loading.hide();
+            $DOM.disconnect.show();
+          });
+          ($DOM.modal, $DOM.modalBtn, $DOM.disconnect).hide();
+          $DOM.loading.show();
+          socket.on("start", (player) => {
+            $DOM.role.text(player.role);
+            $DOM.tasks.empty();
+            player.tasks.forEach((task) => {
+              $DOM.tasks.append($("<li></li>").text(task));
+            });
+            ($DOM.loading, $DOM.modal).hide();
+            $DOM.modalBtn.fadeIn();
+          });
+        });
+
+        const modal = document.getElementById("modal");
+        $(window).click((event) => {
+          if (event.target == modal) {
+            $elements.modal.hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
