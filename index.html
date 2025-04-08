@@ -212,7 +212,9 @@
             $DOM.loading.hide();
             $DOM.disconnect.show();
           });
-          ($DOM.modal, $DOM.modalBtn, $DOM.disconnect).hide();
+          $DOM.modal.hide();
+          $DOM.modalBtn.hide();
+          $DOM.disconnect.hide();
           $DOM.loading.show();
           socket.on("start", (player) => {
             $DOM.role.text(player.role);
@@ -220,17 +222,18 @@
             player.tasks.forEach((task) => {
               $DOM.tasks.append($("<li></li>").text(task));
             });
-            ($DOM.loading, $DOM.modal).hide();
-            $DOM.modalBtn.fadeIn();
+            $DOM.loading.hide();
+            $DOM.modal.hide();
+            $DOM.modalBtn.fadeIn("slow");
           });
         });
 
         const modal = document.getElementById("modal");
-        $(window).click((event) => {
+        window.onclick = function(event) {
           if (event.target == modal) {
-            $elements.modal.hide();
+            modal.style.display = "none";
           }
-        });
+        }
       });
     </script>
   </body>
