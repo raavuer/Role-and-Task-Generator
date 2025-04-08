@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import { dirname, join } from "node:path";
 import { Server } from "socket.io";
 import readline from "node:readline";
+import os from "node:os";
 
 const rl = readline.createInterface({
   input: process.stdin,
@@ -112,7 +113,11 @@ rl.question(
       `${minimumPlayers} players minimum with ${numImpostors} impostors and ${numTasks} tasks.`
     );
     server.listen(8080, () => {
-      console.log("Server started running at: http://debian.local:8080");
+      const hostIP =
+        os.networkInterfaces()[
+          Object.getOwnPropertyNames(os.networkInterfaces())[1]
+        ][0]["address"];
+      console.log(`Server started running at: http://${hostIP}:8080`);
     });
   }
 );
