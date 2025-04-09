@@ -7,14 +7,14 @@ Role and Task Generator was made to streamline / simplify the process of pulling
 ## Installation
 ### Git
 `git clone https://github.com/raavuer/Role-and-Task-Generator.git`
-### NPM
+### Node
 `npm ci`
 
 ## Running
 ### Node
 `node index.js`
 - Input player, impostor, and tasks count with a format of: `3 1 2`.
-- Enter `Y` once prompted to start.
+- Enter `Y` once prompted to start and share your ip.
 
 ## Joining
 Open your browser and join at:
