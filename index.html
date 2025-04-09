@@ -13,7 +13,7 @@
     <meta name="keywords" content="role generator, task generator" />
     <link type="image/jpg" rel="icon" href="favicon.ico" />
     <link type="text/css" rel="stylesheet" href="w3.css" />
-    <script src="jquery-3.7.1.min.js"></script>
+    <script defer src="jquery-3.7.1.min.js"></script>
     <style>
       .w3-theme-l5 {
         color: #000 !important;
@@ -120,7 +120,6 @@
           Connected. <br />
           Please wait for host...
         </h2>
-        <h2 id="disconnect" style="display: none">Your connection was lost.</h2>
 
         <button
           onclick="document.getElementById('modal').style.display='block'"
@@ -130,6 +129,8 @@
         >
           Show Role and Tasks
         </button>
+
+        <h3 id="disconnect" style="display: none">Your connection was lost.</h3>
 
         <div id="modal" class="w3-modal">
           <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-black">
